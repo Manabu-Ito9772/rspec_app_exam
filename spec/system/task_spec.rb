@@ -91,10 +91,11 @@ RSpec.describe 'Task', type: :system do
   end
 
   describe 'Task削除' do
+    let!(:task) { create(:task) }
+
     context '正常系' do
       # FIXME: テストが失敗するので修正してください
       it 'Taskが削除されること' do
-        task
         visit project_tasks_path(project)
         click_link 'Destroy'
         page.driver.browser.switch_to.alert.accept
